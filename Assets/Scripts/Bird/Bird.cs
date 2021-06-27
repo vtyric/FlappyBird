@@ -11,6 +11,8 @@ public class Bird : MonoBehaviour
         mover = GetComponent<BirdMover>();
     }
 
+    public void IncreaseScore() => score++;
+
     public void RestartGame()
     {
         score = 0;
