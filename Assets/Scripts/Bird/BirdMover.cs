@@ -4,6 +4,7 @@ using UnityEngine;
 public class BirdMover : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private Vector3 startPosition;
     [SerializeField] private float tapForce;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float minRotationZ;
@@ -16,8 +17,11 @@ public class BirdMover : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+
         minRotation = Quaternion.Euler(0, 0, minRotationZ);
         maxRotation = Quaternion.Euler(0, 0, maxRotationZ);
+
+        RestartBird();
     }
 
     private void Update()
@@ -30,5 +34,12 @@ public class BirdMover : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, minRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void RestartBird()
+    {
+        transform.position = startPosition;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        rigidbody.velocity = Vector2.zero;
     }
 }
