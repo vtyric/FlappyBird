@@ -1,5 +1,3 @@
 using UnityEngine;
 
-public class ScoreZone : MonoBehaviour
-{
-}
+public class ScoreZone : MonoBehaviour {}
