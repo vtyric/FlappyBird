@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 610082317}
-  capacity: 100
+  capacity: 3
   template: {fileID: 3167179914727758361, guid: 6433eda4bdeeab645899194a727bec8d, type: 3}
   secondsBetweenSpawn: 1.5
-  minSpawnPositionY: -3
+  minSpawnPositionY: -2.7
   maxSpawnPositionY: -1
 --- !u!1 &384705573
 GameObject:

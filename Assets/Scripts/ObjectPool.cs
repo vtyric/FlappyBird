@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
@@ -21,6 +22,16 @@ public class ObjectPool : MonoBehaviour
             spawned.SetActive(false);
             pool.Add(spawned);
         }
+    }
+
+    protected void DisableObjectAbroadScreen()
+    {
+        var disablePoint = camera.ViewportToWorldPoint(new Vector2(0, 0.5f));
+
+        foreach (var item in pool
+            .Where(item =>
+                item.activeSelf && item.transform.position.x < disablePoint.x))
+            item.SetActive(false);
     }
 
     protected bool TryGetObject(out GameObject res)

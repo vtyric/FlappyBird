@@ -24,6 +24,7 @@ public class PipeGenerator : ObjectPool
             var spawnPositionY = Random.Range(minSpawnPositionY, maxSpawnPositionY);
             pipe.SetActive(true);
             pipe.transform.position= new Vector3(transform.position.x, spawnPositionY, transform.position.z);
+            DisableObjectAbroadScreen();
         }
     }
 }
