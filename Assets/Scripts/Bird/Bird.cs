@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BirdMover))]
 public class Bird : MonoBehaviour
 {
     private BirdMover mover;
     private int score;
+
+    public event UnityAction GameOver;
 
     private void Start()
     {
@@ -19,9 +22,5 @@ public class Bird : MonoBehaviour
         mover.RestartBird();
     }
 
-    public void Die()
-    {
-        Debug.Log("DIE");
-        Time.timeScale = 0;
-    }
+    public void Die() => GameOver?.Invoke();
 }
